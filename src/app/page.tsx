@@ -1,12 +1,7 @@
-import Link from 'next/link';
+import React from 'react';
 
-export default function Home() {
-  return (
-    <main>
-      <h1>Home page</h1>
-      <Link href="/OutraPagina" rel="lalalu">
-        Ir para outra página
-      </Link>
-    </main>
-  );
-}
+const Page = () => {
+  return <h1>Page</h1>;
+};
+
+export default Page;
