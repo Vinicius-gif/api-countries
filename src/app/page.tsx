@@ -1,7 +1,9 @@
 import React from 'react';
 
+import ListagemPaises from '../components/ListagemPaises';
+
 const Page = () => {
-  return <h2>Page</h2>;
+  return <ListagemPaises />;
 };
 
 export default Page;

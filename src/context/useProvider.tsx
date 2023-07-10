@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-
 import Header from '../components/Header';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 

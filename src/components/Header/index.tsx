@@ -8,11 +8,12 @@ import { ThemeContext, styled } from 'styled-components';
 export const Container = styled.div`
   height: 60px;
   background: ${(props) => props.theme.colors.elements};
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+  font-size: 25px;
+  font-weight: 700;
 `;
 
 interface Props {
@@ -20,7 +21,7 @@ interface Props {
 }
 
 const Header = ({ toggleTheme }: Props) => {
-  const { colors, title } = useContext(ThemeContext);
+  const { title } = useContext(ThemeContext);
 
   return (
     <Container>
