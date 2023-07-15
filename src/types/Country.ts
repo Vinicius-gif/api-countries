@@ -15,8 +15,11 @@ export type Country = {
   languages: {
     ara: string;
   };
-  population: number;
+  flags: {
+    png: string;
+  };
   region: string;
+  population: number;
   subregion: string;
   capital: string[];
   borders: string[];
