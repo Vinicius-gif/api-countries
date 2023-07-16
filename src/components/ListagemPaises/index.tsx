@@ -1,29 +1,38 @@
+'use client';
+
+import { useState } from 'react';
+
 import { getCountries } from '../../hooks/useGetCountries';
+import { Country } from '../../types/Country';
 import SearchBar from '../SearchBar';
 import Card from './Card';
 import { Container } from './style';
 
-const ListagemPaises = async () => {
-  const countries = await getCountries();
+type Props = {
+  countries: Country[];
+};
 
-  // const countryFilter = (nomeDoPais: string) => {
-  //   const paisesFiltrados = [];
-  //   if (nomeDoPais === '') {
-  //     getCountries();
-  //   }
-  //   for (const i in countries) {
-  //     if (countries[i].name.common.includes(nomeDoPais)) {
-  //       paisesFiltrados.push(countries[i]);
-  //     }
-  //   }
-  //   setCountries(paisesFiltrados);
-  // };
+const ListagemPaises = ({ countries }: Props) => {
+  const [paises, setPaises] = useState(countries);
+
+  const countryFilter = (nomeDoPais: string) => {
+    const paisesFiltrados = [];
+    if (nomeDoPais === '') {
+      getCountries();
+    }
+    for (const i in paises) {
+      if (paises[i].name.common.toLowerCase().includes(nomeDoPais)) {
+        paisesFiltrados.push(paises[i]);
+      }
+    }
+    setPaises(paisesFiltrados);
+  };
 
   return (
     <div>
-      <SearchBar />
+      <SearchBar countryFilter={countryFilter} />
       <Container>
-        {countries.map((country) => (
+        {paises.map((country) => (
           <Card
             key={country.name.common}
             name={country.name.common}

@@ -38,9 +38,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '58ch',
       '&:focus': {
-        width: '20ch'
+        width: '58ch'
       }
     }
   }
@@ -54,6 +54,7 @@ const SearchBar = ({ countryFilter }: any) => {
       </SearchIconWrapper>
       <StyledInputBase
         onChange={(e) => countryFilter(e.target.value)}
+        type="text"
         placeholder="Search…"
         inputProps={{ 'aria-label': 'search' }}
       />

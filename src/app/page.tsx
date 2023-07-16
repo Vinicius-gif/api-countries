@@ -2,10 +2,14 @@ import React from 'react';
 
 import ListagemPaises from '../components/ListagemPaises';
 
-const Page = () => {
+import { getCountries } from '../hooks/useGetCountries';
+
+const Page = async () => {
+  const countries = await getCountries();
+
   return (
     <>
-      <ListagemPaises />
+      <ListagemPaises countries={countries} />
     </>
   );
 };
