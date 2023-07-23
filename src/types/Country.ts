@@ -1,4 +1,4 @@
-export type Country = {
+export interface Country {
   name: {
     common: string;
   };
@@ -23,4 +23,4 @@ export type Country = {
   subregion: string;
   capital: string[];
   borders: string[];
-};
+}

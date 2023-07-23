@@ -1,19 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { getCountries } from '../../hooks/useGetCountries';
-import { Country } from '../../types/Country';
 import SearchBar from '../SearchBar';
 import Card from './Card';
 import { Container } from './style';
 
-type Props = {
-  countries: Country[];
-};
+const ListagemPaises = () => {
+  const [paises, setPaises] = useState([]);
 
-const ListagemPaises = ({ countries }: Props) => {
-  const [paises, setPaises] = useState(countries);
+  async function getCountries() {
+    const response = await fetch('https://restcountries.com/v3.1/all');
+    const jsonData = await response.json();
+    setPaises(jsonData);
+  }
+
+  useEffect(() => {
+    getCountries();
+  }, []);
 
   const countryFilter = (nomeDoPais: string) => {
     const paisesFiltrados = [];
