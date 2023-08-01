@@ -38,6 +38,7 @@ const ListagemPaises = () => {
       <Container>
         {paises.map((country) => (
           <Card
+            href={`/pais/${country.name.common}`}
             key={country.name.common}
             name={country.name.common}
             population={country.population}

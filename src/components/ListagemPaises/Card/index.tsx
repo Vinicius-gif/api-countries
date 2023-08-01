@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
 
 import { styled } from 'styled-components';
@@ -33,9 +34,10 @@ const Informacoes = styled.div`
   }
 `;
 
-const Titulo = styled.h2`
+const Titulo = styled(Link)`
   font-size: 18px;
   font-weight: 600;
+  text-decoration: none;
 `;
 
 const Paragrafo = styled.p`
@@ -47,6 +49,7 @@ const Paragrafo = styled.p`
 `;
 
 type Props = {
+  href: string;
   name: string;
   population: number;
   region: string;
@@ -54,12 +57,12 @@ type Props = {
   flag: string;
 };
 
-const Card = ({ name, population, region, capital, flag }: Props) => {
+const Card = ({ href, name, population, region, capital, flag }: Props) => {
   return (
     <ContainerCard>
       <Bandeira src={flag} alt="bandeira" />
       <Informacoes>
-        <Titulo>{name}</Titulo>
+        <Titulo href={href}>{name}</Titulo>
         <Paragrafo>
           <strong>Population: </strong>
           {population}
