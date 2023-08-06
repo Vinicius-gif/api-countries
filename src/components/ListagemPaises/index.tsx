@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import SearchBar from '../SearchBar';
@@ -8,6 +9,7 @@ import { Container } from './style';
 
 const ListagemPaises = () => {
   const [paises, setPaises] = useState([]);
+  const router = useRouter();
 
   async function getCountries() {
     const response = await fetch('https://restcountries.com/v3.1/all');
@@ -38,7 +40,7 @@ const ListagemPaises = () => {
       <Container>
         {paises.map((country) => (
           <Card
-            href={`/pais/${country.name.common}`}
+            onClick={() => router.push(`/pais/${country.name.common}`)}
             key={country.name.common}
             name={country.name.common}
             population={country.population}

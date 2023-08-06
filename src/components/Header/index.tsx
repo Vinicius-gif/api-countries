@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import React, { useContext } from 'react';
 import Switch from 'react-switch';
 
@@ -12,8 +13,12 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+`;
+
+const Titulo = styled.h2`
   font-size: 25px;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 interface Props {
@@ -23,9 +28,10 @@ interface Props {
 const Header = ({ toggleTheme }: Props) => {
   const { title } = useContext(ThemeContext);
 
+  const router = useRouter();
   return (
     <Container>
-      Onde Pelo Mundo?
+      <Titulo onClick={() => router.push('/')}>Onde Pelo Mundo?</Titulo>
       <Switch
         onChange={toggleTheme}
         checked={title === 'dark'}

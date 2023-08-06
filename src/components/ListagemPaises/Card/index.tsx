@@ -34,7 +34,7 @@ const Informacoes = styled.div`
   }
 `;
 
-const Titulo = styled(Link)`
+const Titulo = styled.h2`
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
@@ -49,20 +49,20 @@ const Paragrafo = styled.p`
 `;
 
 type Props = {
-  href: string;
   name: string;
   population: number;
   region: string;
   capital: string[];
   flag: string;
+  onClick: () => void;
 };
 
-const Card = ({ href, name, population, region, capital, flag }: Props) => {
+const Card = ({ name, population, region, capital, flag, onClick }: Props) => {
   return (
-    <ContainerCard>
+    <ContainerCard onClick={onClick}>
       <Bandeira src={flag} alt="bandeira" />
       <Informacoes>
-        <Titulo href={href}>{name}</Titulo>
+        <Titulo>{name}</Titulo>
         <Paragrafo>
           <strong>Population: </strong>
           {population}

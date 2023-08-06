@@ -2,18 +2,14 @@ export interface Country {
   name: {
     common: string;
   };
-  nativeName: {
-    ara: {
-      official: string;
-    };
-  };
-  currencies: {
-    JOD: {
+  nativeName: string;
+  currencies?: {
+    [key: string]: {
       name: string;
     };
   };
-  languages: {
-    ara: string;
+  languages?: {
+    [key: string]: string;
   };
   flags: {
     png: string;
@@ -21,6 +17,7 @@ export interface Country {
   region: string;
   population: number;
   subregion: string;
+  cca3: string;
   capital: string[];
-  borders: string[];
+  borders?: string[];
 }
